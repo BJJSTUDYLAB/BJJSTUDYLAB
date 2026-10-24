@@ -87,14 +87,26 @@ header{height:68px;background:rgba(8,9,10,.86);border-bottom:1px solid #202327}
 .rules-option{display:block;width:100%;text-align:left;background:#1c2025;border:1px solid #353940;color:#f5f2ea;border-radius:13px;padding:16px;margin:9px 0;font:inherit;cursor:pointer}.rules-option:hover{border-color:#ff6a2a}.rules-option.correct{border-color:#7ee2b8;background:#15382e}.rules-option.wrong{border-color:#ff647c;background:#3b2027}.rules-explain{padding:15px;background:#22272a;border-radius:12px;margin-top:15px;line-height:1.55}.rules-muted{color:#a3a4a0;font-size:13px}#rulesQuestion{font-size:21px;font-weight:850;margin:20px 0}#rulesNext{margin-top:15px;display:none}#rulesLab .primary{padding:13px 22px;cursor:pointer}
 @media(max-width:650px){#rulesLab{padding:16px}.rules-controls select,.rules-controls button{flex:1}}
 </style>
+<style id="rulesMobileVisibility">
+/* Keep the Rules Lab link visible on mobile screens */
+.nav{flex-wrap:wrap;justify-content:flex-end}
+.nav .rules-nav{color:#fff;background:#3c286a;border:1px solid #9c7afa;font-weight:800}
+.rules-promo{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:17px 19px;margin:20px 0;border:1px solid #8064d7;border-radius:16px;background:linear-gradient(110deg,#281b42,#11151e)}
+.rules-promo strong,.rules-promo small{display:block}
+.rules-promo small{color:#c6bed9;margin-top:4px}
+.rules-promo button{border:0;background:#ff6a2a;color:#111;font-weight:900;border-radius:10px;padding:12px 14px;cursor:pointer}
+#rulesLab{scroll-margin-top:125px}
+@media(max-width:700px){header{display:flex;flex-direction:column;align-items:stretch;gap:10px;padding:12px 16px}.nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;width:100%}.nav button{font-size:11px;padding:10px 4px;white-space:nowrap}.brand{font-size:19px}.rules-promo{flex-direction:column;align-items:stretch}.rules-promo button{width:100%}.hero{padding-top:24px}#rulesLab{scroll-margin-top:155px}}
+</style>
 </head>
 <body>
-<header><div class="brand">BJJ <b>STUDY LAB</b></div><div class="nav"><button class="active" onclick="showSection('library',this)">Library</button><button onclick="showSection('athletes',this)">Athletes</button><button onclick="showSection('systems',this)">Systems</button><button onclick="showSection('rulesLab',this)">Rules Lab</button></div></header>
+<header><div class="brand">BJJ <b>STUDY LAB</b></div><div class="nav"><button class="rules-nav" onclick="showSection('rulesLab',this)">📋 Rules Lab</button><button class="active" onclick="showSection('library',this)">Library</button><button onclick="showSection('athletes',this)">Athletes</button><button onclick="showSection('systems',this)">Systems</button></div></header>
 <div class="wrap">
 <section class="hero" id="library">
 <div class="eyebrow">The grappler's study desk</div>
 <h1>Search. Tap. <span>Study.</span><br>Build your game.</h1>
 <p>Search a technique, tap the result, and get the full study breakdown in one place.</p>
+<div class="rules-promo"><div><strong>🏆 Know the rules. Win smarter.</strong><small>Test yourself on IBJJF and ADCC rules.</small></div><button type="button" onclick="document.getElementById('rulesLab').scrollIntoView({behavior:'smooth',block:'start'})">Test Your Rules Knowledge →</button></div>
 <div class="search-wrap"><div class="search"><input id="q" placeholder="Search: berimbolo, crab ride, heel hook, headquarters..." onkeydown="if(event.key==='Enter')search()"><button class="primary" onclick="search()">SEARCH</button></div><div id="searchPopup" class="search-popup" aria-live="polite"></div></div>
 <div class="quick" id="quick"></div><div class="filters"><select id="catFilter" onchange="applyFilters()"><option value="">All categories</option></select><select id="levelFilter" onchange="applyFilters()"><option value="">All levels</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select><select id="styleFilter" onchange="applyFilters()"><option value="">Gi + No-Gi</option><option>Gi</option><option>No-Gi</option></select><button class="reset" onclick="resetFilters()">Reset filters</button></div>
 <div class="tool-row"><button class="tool-btn primary-tool" onclick="randomTechnique()">🎲 Random technique</button><button class="tool-btn" onclick="scrollToBlock('savedSection')">♥ Saved techniques</button><button class="tool-btn" onclick="scrollToBlock('pathsSection')">🗺 Beginner study paths</button><button class="tool-btn" onclick="requestTechnique()">＋ Request a technique</button><button class="tool-btn" onclick="scrollToBlock('planSection')">📅 My study plan</button><button class="tool-btn" onclick="scrollToBlock('historySection')">🔎 Search history</button></div>
