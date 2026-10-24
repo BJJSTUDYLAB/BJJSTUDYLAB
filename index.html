@@ -100,6 +100,28 @@ header{height:68px;background:rgba(8,9,10,.86);border-bottom:1px solid #202327}
 </style>
 </head>
 <body>
+  
+<button
+  onclick="document.getElementById('rulesLab').scrollIntoView({behavior:'smooth',block:'start'})"
+  style="
+    position:fixed;
+    bottom:20px;
+    right:15px;
+    z-index:9999;
+    background:#7c3aed;
+    color:white;
+    border:2px solid white;
+    border-radius:30px;
+    padding:14px 20px;
+    font-size:15px;
+    font-weight:bold;
+    box-shadow:0 4px 15px #0008;
+    cursor:pointer;
+  "
+>
+  📋 Rules Lab
+</button>
+
 <header><div class="brand">BJJ <b>STUDY LAB</b></div><div class="nav"><button class="rules-nav" onclick="showSection('rulesLab',this)">📋 Rules Lab</button><button class="active" onclick="showSection('library',this)">Library</button><button onclick="showSection('athletes',this)">Athletes</button><button onclick="showSection('systems',this)">Systems</button></div></header>
 <div class="wrap">
 <section class="hero" id="library">
